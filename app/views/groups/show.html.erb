@@ -1,33 +1,10 @@
-<<<<<<< HEAD
-<p id="notice">
-  <%= notice %>
-</p>
-<p>
-  <b>Name:</b>
-  <%= @group.name %>
-</p>
-<p>
-  <b>Description:</b>
-  <%= @group.description %>
-</p>
-<p>
-  <b>User:</b>
-  <%= @group.user_id %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_group_path(@group) %>
-\|
-<%= link_to 'Back', groups_path %>
-=======
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Topics</h1>
 
-<table>
+<table class= "table table-hover">
   <thead>
-    <tr>
+    <tr class>
       <th>Name</th>
       <th>Description</th>
       <th>Group</th>
@@ -54,4 +31,3 @@
 <br>
 
 <%= link_to 'New Topic', new_group_topic_path(:group_id => @group.id) %>
->>>>>>> 589782fdffa0d00cbc85e5dbcc26e3bf45c20d09
