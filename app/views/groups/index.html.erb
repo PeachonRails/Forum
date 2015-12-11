@@ -1,18 +1,18 @@
-<h1>Listing groups</h1>
-<table>
+
+<table class="table table-hover">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
+    <tr class="row">
+      <th class="col-md-2">Name</th>
+      <th class="col-md-5">Description</th>
+      <th class="col-md-2">Owner</th>
+      <th class="col-md-1"></th>
+      <th class="col-md-1"></th>
+      <th class="col-md-1"></th>
     </tr>
   </thead>
   <tbody>
     <% @groups.each do |group| %>
-      <tr>
+      <tr class="row">
         <td>
           <%= group.name %>
         </td>
