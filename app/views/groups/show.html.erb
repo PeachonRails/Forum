@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p id="notice">
   <%= notice %>
 </p>
@@ -19,3 +20,38 @@
 <%= link_to 'Edit', edit_group_path(@group) %>
 \|
 <%= link_to 'Back', groups_path %>
+=======
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Topics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Group</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group.topics.each do |topic| %>
+      <tr>
+        <td><%= topic.name %></td>
+        <td><%= topic.description %></td>
+        <td><%= topic.group_id %></td>
+        <td><%= topic.user_id %></td>
+        <td><%= link_to 'Show', group_topic_path(:group_id => topic.group.id, :id => topic.id) %></td>
+        <td><%= link_to 'Edit', edit_group_topic_path(:group_id => topic.group.id, :id => topic.id) %></td>
+        <td><%= link_to 'Destroy', group_topic_path(:group_id => topic.group.id, :id => topic.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Topic', new_group_topic_path(:group_id => @group.id) %>
+>>>>>>> 589782fdffa0d00cbc85e5dbcc26e3bf45c20d09
