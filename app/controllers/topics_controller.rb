@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    redirect_to group_path(:id => params[:group_id])
   end
 
   # GET /topics/1
