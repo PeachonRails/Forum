@@ -19,12 +19,20 @@
 body{
   font-family: 'Oswald', sans-serif;
 }
+#user_email, #user_password{
+  width:100%
+}
 
+h2{
+    text-align: center;
+}
+
+.form {
+  margin: auto;
+  width: 30%;
+}
 
 .table{
   padding: 10px;
 
-}
-.navbar {
-  background-color: #ccff99;
 }
