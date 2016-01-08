@@ -1,0 +1,6 @@
+<h1>Editing Topic</h1>
+
+<%= render 'formUpdate' %>
+
+<td><%= link_to 'Show', group_topic_path(:group_id => params[:group_id], :id => params[:id]) %></td>
+<%= link_to 'Back', group_path(:id => params[:group_id]) %>

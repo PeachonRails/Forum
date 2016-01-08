@@ -22,3 +22,5 @@
 
 <%= link_to 'Edit', edit_group_topic_path(:group_id => @topic.group.id, :id => @topic.id) %> |
 <%= link_to 'Back', group_path(:id => params[:group_id]) %>
+
+<%= link_to 'New Post', new_post_path(:topic_id => @topic.id) %>
