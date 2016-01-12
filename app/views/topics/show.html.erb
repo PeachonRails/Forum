@@ -1,26 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @topic.name %>
-</p>
+<h1>Listing Posts</h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @topic.description %>
-</p>
+<table class= "table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Group:</strong>
-  <%= @topic.group_id %>
-</p>
+  <tbody>
+    <% @topic.posts.each do |post| %>
+      <tr>
+        <td><%= post.name %></td>
+        <td><%= post.title %></td>
+        <td><%= post.content %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<p>
-  <strong>User:</strong>
-  <%= @topic.user_id %>
-</p>
+<br>
 
-<%= link_to 'Edit', edit_group_topic_path(:group_id => @topic.group.id, :id => @topic.id) %> |
+<%= link_to 'New Post', new_topic_post_path %>
+
 <%= link_to 'Back', group_path(:id => params[:group_id]) %>
 
 <%= link_to 'New Post', new_post_path(:topic_id => @topic.id) %>
