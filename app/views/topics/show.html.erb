@@ -5,14 +5,14 @@
 
 
   <div class="form">
-    <%= form_for(@post) do |f| %>
+    <%= form_for @post, :url => group_topic_add_post_path do |f| %>
       <div class="field">
-        <%= f.label :post, "Witaj! co dziś zrobiłeś aby zostać lepszym programistą?"%><br>
+        <%= f.label :post, "Napisz post"%><br>
         <%= f.text_area :content %>
 
       </div>
       <div class="actions">
-        <%= f.submit "Pochwal się!", class: "btn-submit"%>
+        <%= f.submit "Dodaj", class: "btn-submit"%>
       </div>
       <% end %>
   </div>
@@ -21,8 +21,6 @@
 <table class= "table table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Title</th>
       <th>Content</th>
       <th>Date</th>
       <th colspan="3"></th>
@@ -32,8 +30,7 @@
   <tbody>
     <% @posts.reverse.each do |post| %>
       <tr>
-        <td><%= post.name %></td>
-        <td><%= post.title %></td>
+
         <td><%= post.content %></td>
         <td><%= post.created_at.strftime('%c') %></td>
       </tr>
