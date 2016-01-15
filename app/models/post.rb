@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
-  belongs_to :group :through => :topic
+  belongs_to :group 
 end
