@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    #@posts = Post.all
+    redirect_to group_topic_path(:id => params[:topic_id])
   end
 
   # GET /posts/1
@@ -25,6 +26,9 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    @post.topic_id = params_topic.id
+    @post.group_id = params[:group_id]
 
     respond_to do |format|
       if @post.save

@@ -28,8 +28,6 @@
 
 <br>
 
-<%= link_to 'New Post', new_topic_post_path %>
-
 <%= link_to 'Back', group_path(:id => params[:group_id]) %>
 
-<%= link_to 'New Post', new_post_path(:topic_id => @topic.id) %>
+<%= link_to 'New Post', new_group_topic_post_path(:topic_id => @topic.id) %>
