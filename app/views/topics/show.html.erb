@@ -5,7 +5,7 @@
 
 
   <div class="form">
-    <%= form_for @post, :url => group_topic_add_post_path do |f| %>
+    <%= form_for @post, :url => group_topic_add_post_path(topic_id: @topic.id) do |f| %>
       <div class="field">
         <%= f.label :post, "Napisz post"%><br>
         <%= f.text_area :content %>
@@ -28,7 +28,7 @@
   </thead>
 
   <tbody>
-    <% @posts.reverse.each do |post| %>
+    <% @posts.each do |post| %>
       <tr>
 
         <td><%= post.content %></td>
@@ -38,7 +38,7 @@
   </tbody>
 </table>
 
-
+<%= paginate @posts %>
 
 <br>
 

@@ -11,9 +11,8 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
-    @topics = Topic.all
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.order(:id).page params[:page]
   end
 
   # GET /topics/new
@@ -22,13 +21,13 @@ class TopicsController < ApplicationController
   end
 
   def create_post
-    @post = Post.new
+    @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.topic_id = params[:topic_id]
   #  @post.group_id = params[:group_id]
 
       if @post.save
-
+        redirect_to group_topic_path(id: params[:topic_id])
       end
 
   end
@@ -92,9 +91,8 @@ class TopicsController < ApplicationController
       params.require(:topic).permit(:name, :description, :group_id, :user_id)
     end
 
-private
-def post_params
-  params.require(:content).permit(:content)
-end
+    def post_params
+      params.require(:post).permit(:content)
+    end
 
 end
